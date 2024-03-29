@@ -51,7 +51,7 @@ function TeamMemberDropDown({ user, className, initials, isSessionUser = false }
         backgroundColor: isCurrentUser ? `${theme['active']}` : ''
     }
     return (
-        <>
+        <div>
             <button onClick={openMenu} className={className} style={circleStyle}>
                 {initials}
             </button>
@@ -69,7 +69,7 @@ function TeamMemberDropDown({ user, className, initials, isSessionUser = false }
                     />
                 )}
             </div>
-        </>
+        </div>
     );
 }
 
