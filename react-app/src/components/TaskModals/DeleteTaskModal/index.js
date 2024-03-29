@@ -1,3 +1,5 @@
+// Deprecated
+
 import React from "react";
 import { useDispatch} from "react-redux";
 import { deleteTask } from "../../../store/task";
@@ -19,7 +21,7 @@ function DeleteTaskModal({ task }) {
             <div className="delete-modal-header">
         Delete Task:
         <div className="delete-modal-deletion-important">
-          <strong>{task.name}</strong>?
+          <strong>{task.name}</strong>
         </div>
       </div>
       <div className="delete-modal-buttons">
