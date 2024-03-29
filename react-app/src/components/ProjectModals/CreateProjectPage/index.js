@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { useDispatch } from "react-redux";
 import { createProject } from "../../../store/project";
 import { useHistory } from "react-router-dom";
+import { ThemeContext } from "../../../context/Themes";
 import "./CreateProjectPage.css"
 
 
@@ -13,7 +14,7 @@ function CreateProjectPage() {
   const [projectStatus, setProjectStatus] = useState("");
   const [errors, setErrors] = useState([]);
   const [dueDate, setDueDate] = useState({});
-
+  const { theme } = useContext(ThemeContext)
 
   const today = new Date();
   const year = today.getUTCFullYear();
@@ -129,7 +130,7 @@ function CreateProjectPage() {
               required
             />
           </div>
-          <button id="create-project-button" type="submit">Create</button>
+          <button style={{backgroundColor: theme['active']}} id="create-project-button" type="submit">Create</button>
         </form>
       </div>
       {/* <img id="create-project-project-screenshot" src={screenshot}></img> */}

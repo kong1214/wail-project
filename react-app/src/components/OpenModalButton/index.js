@@ -19,7 +19,7 @@ function OpenModalButton({
   };
 
   return (
-    <button style={{backgroundColor: theme['active']}} className={className} onClick={onClick}>{buttonText}</button>
+    <button style={{backgroundColor: theme['active']}} className={`open-modal-button ${className}`} onClick={onClick}>{buttonText}</button>
   );
 }
 
