@@ -230,7 +230,7 @@
 }
 .add-to-team-button{
   border: none;
-  background-color: transparent;
+  background-color: transparent !important;
   color: white;
 }
 .my-workspace-container{
