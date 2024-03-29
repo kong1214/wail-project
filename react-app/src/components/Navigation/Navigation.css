@@ -39,8 +39,7 @@
 }
 .splash-login-button{
   border: none;
-  background-color: white;
-  color: #727272;
+  background-color: transparent !important;
   height: 35px;
   margin-right: 10px;
 }
