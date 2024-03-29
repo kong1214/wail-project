@@ -40,3 +40,6 @@ a {
     background-color: #4573d2;
     color: white;
 }
+.open-modal-button:hover {
+    opacity: .8;
+}
