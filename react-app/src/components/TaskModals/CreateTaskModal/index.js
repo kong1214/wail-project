@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { createTask } from "../../../store/task";
+import { ThemeContext } from "../../../context/Themes";
 import "./CreateTaskModal.css";
 
 function CreateTaskFormModal({ projectId, sections }) {
 
+    const { theme } = useContext(ThemeContext)
     const dispatch = useDispatch();
 
     function sectionIdByName(name) {
@@ -154,7 +156,7 @@ function CreateTaskFormModal({ projectId, sections }) {
                         required
                     />
                 </div>
-                <button id="create-task-button" type="submit">Create</button>
+                <button style={{backgroundColor: theme['active']}} id="create-task-button" type="submit">Create</button>
             </form>
         </div>
     );
