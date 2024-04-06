@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { editTask } from "../../../store/task";
-
+import { ThemeContext } from "../../../context/Themes";
 
 function EditTaskFormModal({ task }) {
 
@@ -11,6 +11,7 @@ function EditTaskFormModal({ task }) {
         return `${dateArr[2]}-${dateArr[0]}-${dateArr[1]}`
     }
 
+    const { theme } = useContext(ThemeContext)
     const dispatch = useDispatch();
     const [taskName, setTaskName] = useState(task.name);
     const [priority, setPriority] = useState(task.priority);
@@ -134,7 +135,7 @@ function EditTaskFormModal({ task }) {
                         required
                     />
                 </div>
-                <button id="create-task-button" type="submit">Save</button>
+                <button style={{backgroundColor: theme['active']}} id="create-task-button" type="submit">Save</button>
             </form>
         </div>
     );
