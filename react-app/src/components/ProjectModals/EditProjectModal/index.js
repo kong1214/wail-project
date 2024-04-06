@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { editProject } from "../../../store/project";
+import { ThemeContext } from "../../../context/Themes";
 import "./EditProjectModal.css"
 
 function EditProjectFormModal({ project }) {
@@ -12,6 +13,7 @@ function EditProjectFormModal({ project }) {
     }
 
     const dispatch = useDispatch();
+    const { theme } = useContext(ThemeContext)
     const [projectName, setProjectName] = useState(project.name);
     const [projectIcon, setProjectIcon] = useState(project.icon);
     const [projectStatus, setProjectStatus] = useState(project.status);
@@ -122,7 +124,7 @@ function EditProjectFormModal({ project }) {
                         required
                     />
                 </div>
-                <button id="edit-project-button" type="submit">Save</button>
+                <button style={{backgroundColor: theme['active']}} id="edit-project-button" type="submit">Save</button>
             </form>
         </div>
     );

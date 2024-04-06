@@ -1,11 +1,13 @@
 import { useDispatch } from "react-redux";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { editSection } from "../../../store/section";
 import { useModal } from "../../../context/Modal";
+import { ThemeContext } from "../../../context/Themes";
 import "./EditSectionModal.css"
 
 function EditSectionModal({ section }) {
     const dispatch = useDispatch();
+    const { theme } = useContext(ThemeContext)
     const [sectionName, setSectionName] = useState(section.name);
     const { closeModal } = useModal();
 
@@ -49,7 +51,7 @@ function EditSectionModal({ section }) {
                     />
                 </div>
                 <div id="edit-section-button-container">
-                    <button className="edit-section-button" type="submit">
+                    <button style={{backgroundColor: theme['active']}} className="edit-section-button" type="submit">
                         Save
                     </button>
                 </div>
