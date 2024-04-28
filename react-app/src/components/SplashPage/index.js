@@ -6,14 +6,14 @@ import SplashFooter from "./SplashFooter"
 import SignUpFormModal from "../SignupFormModal"
 import OpenModalButton from "../OpenModalButton";
 import "./SplashPage.css"
-import themeImage from "./splash-images/theme-selector-screenshot.png"
-import dueTasks from "./splash-images/due-tasks-screenshot.png"
-import projectPage from "./splash-images/task-details.png"
-import projectList from "./splash-images/workspace-screenshot.png"
+import { GetClientWidth } from '../../lib/hooks/GetClientWidth';
 import themeGif from "./splash-images/theme-selector-gif.gif"
 
 function SplashPage() {
     const sessionUser = useSelector(state => state.session.user);
+    const { isMobile } = GetClientWidth();
+
+    console.log(isMobile)
 
 
     if (sessionUser) return <Redirect to="/home" />;
@@ -40,9 +40,11 @@ function SplashPage() {
                         />
                     </div>
                 </div>
-                <div className="splash-images-container">
-                    <img className="splash-image" id="splash-main-gif" src={themeGif} />
-                </div>
+                {!isMobile &&
+                    <div className="splash-images-container">
+                        <img className="splash-image" id="splash-main-gif" src={themeGif} />
+                    </div>
+                }
             </div>
             <SplashFooter />
         </>
